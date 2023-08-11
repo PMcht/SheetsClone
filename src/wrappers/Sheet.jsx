@@ -4,7 +4,7 @@ import Column from '../components/Column';
 import Cell from '../components/Cell';
 import './style.scss'
 
-const Sheet = () => {
+const Sheet = (props) => {
 
   const numberofRows = 12;
   const numberofColumns = 6;
@@ -17,7 +17,7 @@ const Sheet = () => {
             <tbody>
               
                 {[...Array(numberofRows)].map((row, rowIndex) => (
-                    <Row key={rowIndex}>
+                    <Row key={rowIndex} data-row-id={rowIndex}>
                         {[...Array(numberofColumns)].map((column, columnIndex) => (
                             <Column key={columnIndex}>
                                 <Cell cellId={`${rowIndex},${columnIndex}`} />

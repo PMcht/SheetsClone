@@ -3,20 +3,25 @@ import './style.scss'
 import { atom, useRecoilState } from 'recoil';
 import { CellValueState } from '../memoize/cellValueState';
 
+
+
 const Cell = (props) => {
 
     const [editMode, setEditMode] = useState(false);
-    const [cellValue, setCellValue] = useRecoilState(CellValueState)
+    const [cellValue, setCellValue] = useRecoilState(CellValueState(props.cellId))
 
     const updateCellValue = (e) => {
         setCellValue(e.target.value)
     }
 
-    const LabelToInput = () => setEditMode(true);
+    const LabelToInput = (e) => {
+        console.log(e.target.dataset.cellId)
+        setEditMode(true);
+    }
     const InputToLabel = () => setEditMode(false);
 
     const outSideClick = (e) => {
-        if((e.target)?.dataset?.cellID !== props.cellID){
+        if((e.target)?.dataset?.cellId !== props.cellId){
             InputToLabel()
         }
     }
@@ -36,9 +41,9 @@ const Cell = (props) => {
 
 
   return editMode ? (
-            <input className='Cell' onKeyDown={EnterInput} data-cell-id={props.cellID} value={cellValue} onChange={updateCellValue} />
+            <input className={`Cell ${props.cellId}`} onKeyDown={EnterInput} data-cell-id={props.cellId} value={cellValue} onChange={updateCellValue} />
         ) : (
-            <div className='Cell' onClick={LabelToInput} data-cell-id={props.cellID} >
+            <div className={`Cell ${props.cellId}`} onClick={LabelToInput} data-cell-id={props.cellId} >
                 {cellValue}
             </div>
         );
