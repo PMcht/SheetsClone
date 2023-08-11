@@ -1,9 +1,9 @@
 import React from 'react'
 import './style.scss'
 
-const Row = () => {
+const Row = (props) => {
   return (
-    <tr className='Row'></tr>
+    <tr className='Row'>{props.children}</tr>
   )
 }
 

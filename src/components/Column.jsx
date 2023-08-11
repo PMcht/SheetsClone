@@ -1,9 +1,9 @@
 import React from 'react'
 import './style.scss'
 
-const Column = () => {
+const Column = (props) => {
   return (
-    <td className='Column'></td>
+    <td className='Column'>{props.children}</td>
   )
 }
 

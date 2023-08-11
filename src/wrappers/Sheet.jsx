@@ -6,45 +6,24 @@ import './style.scss'
 
 const Sheet = () => {
 
+  const numberofRows = 12;
+  const numberofColumns = 6;
+
   return (
     <div className='sheetWrap'>
 
         <table>
             <tbody>
-
-              <Row>
-                <Column>
-                  <Cell />
-                </Column>
-                <Column>
-                  <Cell />
-                </Column>
-                <Column>
-                  <Cell />
-                </Column>
-              </Row>
-              <Row>
-                <Column>
-                  <Cell />
-                </Column>
-                <Column>
-                  <Cell />
-                </Column>
-                <Column>
-                  <Cell />
-                </Column>
-              </Row>
-              <Row>
-                <Column>
-                  <Cell />
-                </Column>
-                <Column>
-                  <Cell />
-                </Column>
-                <Column>
-                  <Cell />
-                </Column>
-              </Row>
+              
+                {[...Array(numberofRows)].map((row, rowIndex) => (
+                    <Row key={rowIndex}>
+                        {[...Array(numberofColumns)].map((column, columnIndex) => (
+                            <Column key={columnIndex}>
+                                <Cell cellId={`${rowIndex},${columnIndex}`} />
+                            </Column>
+                        ))}
+                    </Row>
+            ))}
 
 
 
