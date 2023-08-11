@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Row from '../components/Row';
 import Column from '../components/Column';
 import Cell from '../components/Cell';
@@ -8,6 +8,7 @@ const Sheet = () => {
 
   const numberofRows = 12;
   const numberofColumns = 6;
+
 
   return (
     <div className='sheetWrap'>
