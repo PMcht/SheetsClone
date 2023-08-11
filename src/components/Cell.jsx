@@ -15,7 +15,6 @@ const Cell = (props) => {
     }
 
     const LabelToInput = (e) => {
-        console.log(e.target.dataset.cellId)
         setEditMode(true);
     }
     const InputToLabel = () => setEditMode(false);
@@ -41,9 +40,9 @@ const Cell = (props) => {
 
 
   return editMode ? (
-            <input className={`Cell ${props.cellId}`} onKeyDown={EnterInput} data-cell-id={props.cellId} value={cellValue} onChange={updateCellValue} />
+            <input className={`Cell Input ${props.cellId}`} onKeyDown={EnterInput} data-cell-id={props.cellId} value={cellValue} onChange={updateCellValue} />
         ) : (
-            <div className={`Cell ${props.cellId}`} onClick={LabelToInput} data-cell-id={props.cellId} >
+            <div className={`Cell Label ${props.cellId}`} onClick={LabelToInput} data-cell-id={props.cellId} >
                 {cellValue}
             </div>
         );
