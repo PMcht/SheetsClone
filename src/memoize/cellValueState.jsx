@@ -1,11 +1,11 @@
 import { atom } from "recoil";
-import { memoize } from "../utils/memoize";
+import { memoize } from "./memoize";
 
 
 export const CellValueState = (cellId) => 
     memoize(cellId, () => 
         atom({
             key: `cell_${cellId}`,
-            default: 'test'
+            default: ''
         })
     )
