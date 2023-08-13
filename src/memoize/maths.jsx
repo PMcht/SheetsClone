@@ -3,6 +3,7 @@ import { selector } from 'recoil';
 import { CellValueState } from './cellValueState';
 import { memoize } from './memoize';
 import { evaluate } from 'mathjs';
+import { equationCalc } from '../calcs/equationCalc';
 
 const maths = (cellId) => {
   return (
@@ -10,11 +11,18 @@ const maths = (cellId) => {
         selector({
             key: `evaluatedCell_${cellId}`,
             get: ({get}) => {
-                const value = get(CellValueState(cellId));
+                const value = get(CellValueState(cellId)).toString();
+            
 
                 if(value.startsWith('=')){
+                    
+                    
                     try{
-                        return evaluate(value.slice(1));
+                        
+                        const evaluatedExpression = equationCalc(get, value.slice(1));
+
+                        return evaluate(evaluatedExpression);
+
                     }
 
                     catch{

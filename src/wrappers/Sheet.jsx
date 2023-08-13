@@ -35,7 +35,7 @@ const Sheet = (props) => {
                         <Headers className="vertical">{rowIndex +1}</Headers>
                         {[...Array(columns)].map((column, columnIndex) => (
                             <Column key={columnIndex}>
-                                <Cell cellId={`${rowIndex},${columnIndex}`} />
+                                <Cell cellId={`${numberToChar(columnIndex)}${rowIndex+1}`} />
                             </Column>
                         ))}
                     </Row>

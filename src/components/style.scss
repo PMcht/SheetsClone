@@ -23,6 +23,7 @@
         // margin-top: -4px;
         padding: 0 0 0 3px;
         border: 2px solid #1A73E8;
+        background: #eee;
         display: inline-block;
         vertical-align: middle;
         cursor:default
@@ -34,8 +35,8 @@
 }
 
 .Column {
-    min-width: 150px;
-    max-width: 150px;
+    min-width: 130px;
+    max-width: 130px;
     height: 40px;
     margin: 0;
     padding: 0;
@@ -48,5 +49,7 @@
 }
 
 th{
-    min-width: 50px
+    min-width: 50px;
+    border: 1px solid rgb(192, 192, 192);
+    background-color: #cecece;
 }
